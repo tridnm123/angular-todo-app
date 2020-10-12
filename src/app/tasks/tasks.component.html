@@ -1,0 +1,16 @@
+<app-task (childSubmit)="parentSubmit($event)"></app-task>
+
+<h1>Tasks</h1>
+<ol>
+  <li *ngFor="let task of tasks">
+    <h4 style="margin: 0;">Title: {{ task.title }}</h4>
+    Description: {{ task.description }}<br>
+    Status: <div style="display: inline;">{{ task.status }}</div><br>
+    Change Status To:
+    <select (change)="onSelectClick(task, $event.target.value)">
+      <option *ngFor="let status_item of map.get(task.status)">
+        {{status_item}}
+        </option>
+    </select>
+  </li>
+</ol>
